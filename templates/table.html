@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processed Data Table</title>
+</head>
+<body>
+    <h1>Processed Data Table</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>_id</th>
+                <th>Name</th>
+                <th>count</th>
+                <th>first</th>
+                <th>last</th>
+                <th>pID</th>
+                <th>iID</th>
+                <th>sID</th>
+                <th>tI</th>
+                <th>sessionTime</th>
+                <th>r</th>
+                <th>KC</th>
+                <th>sessionID</th>
+                <th>raw</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in csv_data.strip().split('\n')[1:] %}
+                <tr>
+                    {% for column in row.split(',') %}
+                        <td>{{ column }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/">Go back to upload</a>
+</body>
+</html>
